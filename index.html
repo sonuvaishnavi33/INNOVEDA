@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="INNOVEDA - Unfolding the Soul of India. Explore Indian heritage sites with interactive 3D models and an AI assistant.">
+    <title>INNOVEDA</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for ancient-style script and readable body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 3D Model Viewer Script -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <a href="/" class="site-title-link">
+                <h1 class="project-name">INNOVEDA</h1>
+                <h2 class="sub-heading">Unfolding the Soul of India</h2>
+            </a>
+        </div>
+        <nav>
+            <button id="menu-button">☰ Explore Sites</button>
+            <div id="heritage-dropdown" class="dropdown-content">
+                <!-- Dropdown links will be populated by JavaScript -->
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Content will be dynamically loaded here by JavaScript -->
+        <!-- This is the default homepage content -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <h3>Interactive 3D Models</h3>
+                <p>Explore stunningly detailed 3D models of temples, idols, and architecture. Rotate, pan, and zoom to see every intricate detail up close.</p>
+            </div>
+            <div class="feature-card">
+                <h3>In-Depth Explanations</h3>
+                <p>Discover the history, significance, and stories behind each sacred site and its components, curated by experts.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Generated Audio Narration</h3>
+                <p>Engage your senses with on-demand Text-to-Speech narration that brings the heritage sites to life as you explore.</p>
+            </div>
+            <div class="feature-card">
+                <h3>AI Heritage Assistant</h3>
+                <p>Have a question? Our integrated AI assistant is ready to provide deeper insights and answer your queries about each location.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- This is a hidden template for the heritage site page view -->
+    <template id="heritage-site-template">
+        <div class="heritage-container">
+            <div class="viewer-section" id="viewer-section">
+                <model-viewer id="model-viewer-element" 
+                    src="" 
+                    alt="A 3D model of a heritage site"
+                    ar 
+                    ar-modes="webxr scene-viewer quick-look"
+                    camera-controls 
+                    auto-rotate
+                    shadow-intensity="1">
+                    <button class="fullscreen-btn" id="fullscreen-btn">⛶ Fullscreen</button>
+                </model-viewer>
+            </div>
+            <div class="info-section">
+                <h2 id="site-name" class="heritage-title"></h2>
+                <p id="main-explanation"></p>
+                <div class="submodel-selector">
+                    <h4>Select an Object to View</h4>
+                    <div id="submodel-buttons"></div>
+                </div>
+                <div class="submodel-details">
+                    <p id="submodel-explanation"></p>
+                    <div class="audio-player">
+                        <button id="audio-toggle-btn">🔊 Play Narration</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ar-section">
+            <h3>View in Your Space (AR)</h3>
+            <p>Scan the QR code with your phone's camera to place this model in your real-world environment.</p>
+            <img id="qr-code-img" src="assets/images/dummy-qr.png" alt="QR Code for AR view">
+        </div>
+        <!-- NEW: AI Assistant Section -->
+        <div id="ai-assistant-section" class="ai-assistant-section">
+            <h3>AI Heritage Assistant</h3>
+            <p>Ask me anything about this heritage site!</p>
+            <div id="chat-messages" class="chat-messages">
+                <!-- AI and user messages will appear here -->
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type your question...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>
